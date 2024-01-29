@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.project.projectboard.config.JpaConfig;
 import org.project.projectboard.domain.Article;
+import org.project.projectboard.domain.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
@@ -21,18 +22,22 @@ class JpaRepositoryTest {
 
     private final ArticleRepository articleRepository;
     private final ArticleCommentRepository articleCommentRepository;
+    private final UserAccountRepository userAccountRepository;
 
     public JpaRepositoryTest(
             @Autowired ArticleRepository articleRepository,
-            @Autowired ArticleCommentRepository articleCommentRepository
+            @Autowired ArticleCommentRepository articleCommentRepository,
+            @Autowired UserAccountRepository userAccountRepository
+
     ) {
         this.articleRepository = articleRepository;
         this.articleCommentRepository = articleCommentRepository;
+        this.userAccountRepository = userAccountRepository;
     }
 
     @DisplayName("select test")
     @Test
-    void givenTestDate_whenSelecting_thenWorksFine() {
+    void givenTestData_whenSelecting_thenWorksFine() {
 
         //given
 
@@ -48,13 +53,15 @@ class JpaRepositoryTest {
 
     @DisplayName("insert test")
     @Test
-    void givenTestDate_whenInserting_thenWorksFine() {
+    void givenTestData_whenInserting_thenWorksFine() {
 
         //given
         long previousCount = articleRepository.count();
+        UserAccount userAccount = userAccountRepository.save(UserAccount.of("uno", "pw", null, null, null));
+        Article article = Article.of(userAccount, "new article", "new content", "#spring");
 
         //when
-        Article savedArticle = articleRepository.save(Article.of("new article", "new content", "#spring"));
+        articleRepository.save(article);
 
         //then
         assertThat(articleRepository.count()).isEqualTo(previousCount + 1);
