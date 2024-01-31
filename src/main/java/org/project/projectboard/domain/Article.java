@@ -24,7 +24,7 @@ public class Article extends AuditingFields{
     @GeneratedValue(strategy = GenerationType.IDENTITY) // MySQL 오토 인크레먼트 -> IDENTITY 방식이어야 함
     private Long id;
 
-    @Setter @ManyToOne(optional = false) private UserAccount userAccount; // 유저 정보 ID
+    @Setter @ManyToOne(optional = false) @JoinColumn(name="userId") private UserAccount userAccount; // 유저 정보 ID
 
     //@setter를 클래스에 달지 않은 것은 임의로 내용을 바꾸지 않게 / id, meta data 등 자동으로 생성되게!(설계의도)
     @Setter @Column(nullable = false) private String title; // 제목
