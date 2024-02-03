@@ -4,7 +4,6 @@ package org.project.projectboard.controller;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.project.projectboard.Controller.ArticleCommentController;
-import org.project.projectboard.config.SecurityConfig;
 import org.project.projectboard.config.TestSecurityConfig;
 import org.project.projectboard.dto.ArticleCommentDto;
 import org.project.projectboard.dto.request.ArticleCommentRequest;

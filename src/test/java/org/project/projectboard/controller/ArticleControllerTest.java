@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.project.projectboard.Controller.ArticleController;
-import org.project.projectboard.config.SecurityConfig;
 import org.project.projectboard.config.TestSecurityConfig;
 import org.project.projectboard.domain.constant.FormStatus;
 import org.project.projectboard.domain.constant.SearchType;

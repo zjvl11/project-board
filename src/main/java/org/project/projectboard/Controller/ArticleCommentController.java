@@ -2,8 +2,6 @@ package org.project.projectboard.Controller;
 
 
 import lombok.RequiredArgsConstructor;
-import org.project.projectboard.dto.ArticleCommentDto;
-import org.project.projectboard.dto.UserAccountDto;
 import org.project.projectboard.dto.request.ArticleCommentRequest;
 import org.project.projectboard.dto.security.BoardPrincipal;
 import org.project.projectboard.service.ArticleCommentService;

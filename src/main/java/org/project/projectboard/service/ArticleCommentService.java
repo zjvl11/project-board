@@ -1,7 +1,7 @@
 package org.project.projectboard.service;
 
 
-import jakarta.persistence.EntityNotFoundException;
+import javax.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.project.projectboard.domain.Article;
