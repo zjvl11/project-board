@@ -3,7 +3,6 @@ package org.project.projectboard.Controller;
 import lombok.RequiredArgsConstructor;
 import org.project.projectboard.domain.constant.FormStatus;
 import org.project.projectboard.domain.constant.SearchType;
-import org.project.projectboard.dto.UserAccountDto;
 import org.project.projectboard.dto.request.ArticleRequest;
 import org.project.projectboard.dto.response.ArticleResponse;
 import org.project.projectboard.dto.response.ArticleWithCommentsResponse;
