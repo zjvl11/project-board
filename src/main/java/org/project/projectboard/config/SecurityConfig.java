@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -24,7 +23,7 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                        .requestMatchers(
+                        .mvcMatchers(
                                 HttpMethod.GET,
                                 "/",
                                 "/articles",
@@ -32,13 +31,11 @@ public class SecurityConfig {
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
-                .formLogin((formLogin) ->
-                        formLogin.loginPage("/login"))
-                .logout((logoutConfig) ->
-                        logoutConfig.logoutSuccessUrl("/")
-                )
+                .formLogin().and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .and()
                 .build();
-
     }
 
     @Bean
